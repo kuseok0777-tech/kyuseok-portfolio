@@ -1,6 +1,6 @@
 export const profile = {
-  name: "Kyuseok Choi",
-  title: "Mechanical Engineer",
+  name: "Kyu S. Choi",
+  title: "Project Engineer",
   taglines: [
     "Project Engineer @ GMODIS Inc.",
     "Piping & Constructability Specialist",
@@ -8,11 +8,13 @@ export const profile = {
     "Queen's University Grad, 2025",
   ],
   summary:
-    "Junior mechanical engineer with hands-on experience at a multi-billion-dollar battery manufacturing project in Canada. Passionate about bridging design intent with real-world site execution through code-aware decisions, 3D model coordination, and cross-cultural teamwork.",
+    "Project engineer with hands-on experience at a multi-billion-dollar battery manufacturing project in Canada. Passionate about bridging design intent with real-world site execution through code-aware decisions, 3D model coordination, and cross-cultural teamwork.",
   email: "kuseok0777@gmail.com",
   location: "Windsor, Ontario, Canada",
-  linkedin: "#",
+  linkedin: "https://www.linkedin.com/in/kyuchoiatgmodis",
   github: "#",
+  /** 프로필 사진: public 폴더에 넣은 파일명 (예: avatar.jpg) */
+  avatar: "/avatar.png",
 };
 
 export const skills = [
@@ -34,6 +36,7 @@ export const experiences = [
   {
     role: "Project Engineer",
     company: "GMODIS Inc.",
+    logo: "/gmodis-logo.png",
     location: "Windsor, ON",
     period: "July 2025 – Present",
     description:

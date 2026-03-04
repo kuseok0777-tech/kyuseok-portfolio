@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Linkedin, Github, Send } from "lucide-react";
+import { Mail, MapPin, Linkedin, Send } from "lucide-react";
 import { useInView } from "../hooks/useInView";
 import { profile } from "../data/resume";
 
@@ -77,15 +77,6 @@ export default function Contact() {
                 >
                   <Linkedin size={18} className="group-hover:scale-110 transition-transform" />
                   <span className="text-sm font-medium">LinkedIn</span>
-                </a>
-                <a
-                  href={profile.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 p-4 rounded-2xl border border-slate-800 hover:border-slate-500 bg-slate-900/40 hover:bg-slate-900/80 transition-all text-slate-400 hover:text-white group"
-                >
-                  <Github size={18} className="group-hover:scale-110 transition-transform" />
-                  <span className="text-sm font-medium">GitHub</span>
                 </a>
               </div>
             </div>

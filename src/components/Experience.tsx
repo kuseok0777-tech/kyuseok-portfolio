@@ -39,9 +39,17 @@ export default function Experience() {
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
               <div className="flex flex-col sm:flex-row sm:items-start gap-5">
-                {/* Icon */}
-                <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
-                  <Briefcase size={20} className="text-white" />
+                {/* Icon or company logo */}
+                <div
+                  className={`flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg overflow-hidden ${
+                    "logo" in exp && exp.logo ? "bg-white p-1.5" : "bg-gradient-to-br from-blue-500 to-violet-600 shadow-blue-500/20"
+                  }`}
+                >
+                  {"logo" in exp && exp.logo ? (
+                    <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain" />
+                  ) : (
+                    <Briefcase size={20} className="text-white" />
+                  )}
                 </div>
 
                 <div className="flex-1 min-w-0">

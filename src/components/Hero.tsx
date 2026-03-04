@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, Github, Linkedin, MapPin } from "lucide-react";
+import { ArrowDown, Mail, Linkedin, MapPin } from "lucide-react";
 import { profile } from "../data/resume";
 import { useTyping } from "../hooks/useTyping";
 
@@ -56,73 +56,83 @@ export default function Hero() {
         <FloatingParticle key={i} {...p} />
       ))}
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-        <div className="flex flex-col items-start gap-6 max-w-3xl">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium"
-          >
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Open to Opportunities · Windsor, ON
-          </motion.div>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full flex flex-col">
+        {/* Intro block: 이름+태그라인(가변) | 프로필(고정) */}
+        <div className="flex flex-row items-center gap-6 sm:gap-8 w-full">
+          {/* 왼쪽: 이름+태그라인 — 최소 너비 고정해서 타이핑 시 프로필이 안 흔들리게 */}
+          <div className="flex flex-col gap-0.5 min-w-[200px] sm:min-w-[280px] flex-1 max-w-[calc(100%-8rem)] sm:max-w-[calc(100%-10rem)]">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.7 }}
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-none tracking-tight"
+            >
+              Kyu S.
+              <br />
+              <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
+                Choi
+              </span>
+            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.55 }}
+              className="h-6 sm:h-7 flex items-center min-w-0 overflow-hidden"
+            >
+              <span className="text-sm sm:text-lg text-slate-500 font-medium truncate block min-w-0">
+                {typed}
+                <span className="inline-block w-0.5 h-3.5 sm:h-4 bg-blue-400/80 ml-0.5 animate-pulse flex-shrink-0 align-middle" />
+              </span>
+            </motion.div>
+          </div>
+          {/* 프로필 사진: 고정 크기·고정 위치, 태그라인 영향 안 받음 */}
+          {"avatar" in profile && profile.avatar && (
+            <div className="flex flex-shrink-0 items-center justify-center w-24 h-24 sm:w-28 sm:h-28 lg:w-44 lg:h-44 xl:w-52 xl:h-52">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="relative w-full h-full rounded-full overflow-hidden ring-2 ring-slate-600/50 ring-offset-2 ring-offset-slate-950 shadow-xl"
+              >
+                <img
+                  src={profile.avatar}
+                  alt={profile.name}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </div>
+          )}
+        </div>
 
-          {/* Name */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.7 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-none tracking-tight"
-          >
-            Kyuseok
-            <br />
-            <span className="bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
-              Choi
-            </span>
-          </motion.h1>
+        {/* 구분선 */}
+        <div className="mt-10 pt-10 border-t border-slate-800/80 w-full max-w-2xl" />
 
-          {/* Typing effect */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.55 }}
-            className="h-8 flex items-center"
-          >
-            <span className="text-lg sm:text-xl text-slate-400 font-medium">
-              {typed}
-              <span className="inline-block w-0.5 h-5 bg-blue-400 ml-0.5 animate-pulse" />
-            </span>
-          </motion.div>
-
-          {/* Summary */}
+        {/* 요약·위치·CTA — 명확한 계층 */}
+        <div className="flex flex-col gap-5 max-w-2xl w-full mt-2">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65 }}
-            className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl"
+            className="text-slate-400 text-base sm:text-lg leading-relaxed"
           >
             {profile.summary}
           </motion.p>
 
-          {/* Location */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.75 }}
-            className="flex items-center gap-1.5 text-slate-500 text-sm"
+            className="flex items-center gap-2 text-slate-500 text-sm"
           >
-            <MapPin size={14} />
+            <MapPin size={14} className="flex-shrink-0 text-slate-600" />
             {profile.location}
           </motion.p>
 
-          {/* CTA buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.85 }}
-            className="flex flex-wrap gap-3"
+            className="flex flex-wrap gap-3 pt-1"
           >
             <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
@@ -155,19 +165,10 @@ export default function Hero() {
               <Linkedin size={18} />
               <span>LinkedIn</span>
             </a>
-            <a
-              href={profile.github}
-              className="flex items-center gap-2 text-slate-500 hover:text-white transition-colors text-sm"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Github size={18} />
-              <span>GitHub</span>
-            </a>
           </motion.div>
         </div>
 
-        {/* Stats row */}
+        {/* Stats row — 첫 줄 아래 */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

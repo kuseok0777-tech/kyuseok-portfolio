@@ -60,7 +60,7 @@ export default function Navbar() {
               KC
             </div>
             <span className="hidden sm:block font-semibold text-white/80 group-hover:text-white transition-colors text-sm">
-              Kyuseok Choi
+              Kyu S. Choi
             </span>
           </button>
 

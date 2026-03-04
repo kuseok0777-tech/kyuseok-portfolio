@@ -5,6 +5,7 @@ import { useInView } from "../hooks/useInView";
 const cards = [
   {
     icon: GraduationCap,
+    logo: "/queens-logo.png",
     title: "Education",
     body: "B.A.Sc. in Mechanical Engineering, Queen's University — graduated June 2025 with coursework in FEA, thermodynamics, machine design, and fluid mechanics.",
     color: "from-blue-500 to-cyan-500",
@@ -104,9 +105,17 @@ export default function About() {
                 className="p-5 rounded-2xl bg-slate-800/60 border border-slate-700/50 hover:border-slate-600 hover:bg-slate-800 transition-all duration-300 group"
               >
                 <div
-                  className={`w-10 h-10 rounded-xl bg-gradient-to-br ${c.color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform`}
+                  className={`rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform overflow-hidden ${
+                    "logo" in c && c.logo
+                      ? "w-16 h-16 sm:w-20 sm:h-20 bg-white p-1"
+                      : `w-10 h-10 bg-gradient-to-br ${c.color}`
+                  }`}
                 >
-                  <c.icon size={18} className="text-white" />
+                  {"logo" in c && c.logo ? (
+                    <img src={c.logo} alt={c.title} className="w-full h-full object-contain" />
+                  ) : (
+                    <c.icon size={18} className="text-white" />
+                  )}
                 </div>
                 <h3 className="text-white font-bold mb-2">{c.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{c.body}</p>

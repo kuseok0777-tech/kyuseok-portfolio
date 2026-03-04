@@ -9,7 +9,7 @@ export default function Footer() {
             KC
           </div>
           <p className="text-slate-500 text-sm">
-            &copy; {new Date().getFullYear()} Kyuseok Choi — Mechanical Engineer
+            &copy; {new Date().getFullYear()} Kyu S. Choi — Project Engineer
           </p>
         </div>
         <button

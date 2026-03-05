@@ -11,8 +11,6 @@ const LINE_START_R_OFFSET = 4;
 const ARROW_LENGTH = 48;
 const LABEL_GAP = 8;
 const LABEL_PUSH_OUT = 32;
-const LABEL_SHIFT_RIGHT = 38;
-const LABEL_SHIFT_RIGHT_3D = 70;
 
 function DonutChart({
   items,
@@ -33,9 +31,10 @@ function DonutChart({
     color: COLORS[i % COLORS.length],
   }));
 
-  const width = 420;
   const height = 340;
-  const cx = width / 2;
+  const width = 640;
+  const viewBoxMinX = -100;
+  const cx = viewBoxMinX + width / 2;
   const cy = height / 2;
   const r = 58;
   const strokeWidth = 26;
@@ -58,8 +57,8 @@ function DonutChart({
   return (
     <div className="flex flex-col items-center w-full">
       <motion.svg
-        viewBox={`0 0 ${width} ${height}`}
-        className="w-full max-w-[min(100%,340px)] aspect-[420/340] sm:max-w-[400px] lg:max-w-[460px]"
+        viewBox={`${viewBoxMinX} 0 ${width} ${height}`}
+        className="w-full max-w-[min(100%,400px)] aspect-[640/340] sm:max-w-[480px] lg:max-w-[560px]"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={inView ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.6, delay, type: "spring", stiffness: 90, damping: 18 }}
@@ -80,24 +79,19 @@ function DonutChart({
         {segments.map((seg, i) => {
           const midAngle = (seg.startAngle + seg.endAngle) / 2;
           const isEngineering = category === "Engineering";
+          const isSoftware = category === "Software";
           const pushOut =
-            isEngineering &&
-            (seg.name === "Constructability Review" || seg.name === "Piping Codes & Standards");
-          const shiftRight =
-            isEngineering &&
-            (seg.name === "FEA (Finite Element Analysis)" || seg.name === "3D Model Coordination");
-          const shiftRightAmount = seg.name === "3D Model Coordination" ? LABEL_SHIFT_RIGHT_3D : LABEL_SHIFT_RIGHT;
+            (isEngineering &&
+              (seg.name === "Constructability Review" || seg.name === "Piping Codes & Standards")) ||
+            (isSoftware && (seg.name === "Python" || seg.name === "AutoCAD"));
 
           const labelR = pushOut ? labelRBase + LABEL_PUSH_OUT : labelRBase;
-          const lineEndRCur = labelR - LABEL_GAP;
           const [x1, y1] = toXY(midAngle, lineStartR);
-          const [x2, y2] = toXY(midAngle, lineEndRCur);
-          let [lx, ly] = toXY(midAngle, labelR);
-          if (shiftRight) lx += shiftRightAmount;
-          const labelAnchor = midAngle >= 90 && midAngle < 270 ? "end" : "start";
-          const lineEndX = shiftRight ? lx : x2;
-          const lineEndY = shiftRight ? ly : y2;
-          const lineD = `M ${lineEndX} ${lineEndY} L ${x1} ${y1}`;
+          const [lx, ly] = toXY(midAngle, labelR);
+          const labelAnchorDefault = midAngle >= 90 && midAngle < 270 ? "end" : "start";
+          const labelAnchor =
+            seg.name === "3D Model Coordination" ? "end" : labelAnchorDefault;
+          const lineD = `M ${lx} ${ly} L ${x1} ${y1}`;
 
           return (
             <g key={seg.name}>
@@ -188,10 +182,10 @@ export default function Skills() {
           <h2 className="text-4xl sm:text-5xl font-black text-white">Skills</h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-12">
+        <div className="flex flex-col gap-20">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 24 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="flex flex-col items-center"
           >
@@ -204,9 +198,9 @@ export default function Skills() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.25 }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col items-center"
           >
             <h3 className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-8 flex items-center gap-3 w-full">
@@ -214,7 +208,7 @@ export default function Skills() {
               Engineering Competencies
               <span className="flex-1 h-px bg-slate-800" />
             </h3>
-            <DonutChart items={engineering} category="Engineering" delay={0.3} inView={inView} />
+            <DonutChart items={engineering} category="Engineering" delay={0.35} inView={inView} />
           </motion.div>
         </div>
 

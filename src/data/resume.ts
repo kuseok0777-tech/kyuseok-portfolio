@@ -7,7 +7,7 @@ export const profile = {
     "International project experience",
   ],
   summary:
-    "Project engineer with hands-on experience at very first multi-billion-dollar battery manufacturing project in Canada.            ",
+    "Project engineer with hands-on experience at the first multi-billion-dollar battery manufacturing project in Canada. Brings a multicultural perspective (Korean background, Canadian university, international teams) and understands diverse work customs.",
   email: "kuseok0777@gmail.com",
   location: "Windsor, Ontario, Canada",
   linkedin: "https://www.linkedin.com/in/kyuchoiatgmodis",  

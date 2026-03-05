@@ -12,6 +12,11 @@ const ARROW_LENGTH = 48;
 const LABEL_GAP = 8;
 const LABEL_PUSH_OUT = 32;
 
+const LABEL_WRAP: Record<string, [string, string]> = {
+  "Constructability Review": ["Constructability", "Review"],
+  "Piping Codes & Standards": ["Piping Codes &", "Standards"],
+};
+
 function DonutChart({
   items,
   category,
@@ -89,8 +94,13 @@ function DonutChart({
           const [x1, y1] = toXY(midAngle, lineStartR);
           const [lx, ly] = toXY(midAngle, labelR);
           const labelAnchorDefault = midAngle >= 90 && midAngle < 270 ? "end" : "start";
-          const labelAnchor =
-            seg.name === "3D Model Coordination" ? "end" : labelAnchorDefault;
+          const useMiddle =
+            seg.name === "3D Model Coordination" ||
+            seg.name === "Field Instructions" ||
+            seg.name === "P&ID Reading" ||
+            seg.name === "Microsoft Excel" ||
+            seg.name === "Navisworks";
+          const labelAnchor = useMiddle ? "middle" : labelAnchorDefault;
           const lineD = `M ${lx} ${ly} L ${x1} ${y1}`;
 
           return (
@@ -139,7 +149,18 @@ function DonutChart({
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                {seg.name}
+                {LABEL_WRAP[seg.name] ? (
+                  <>
+                    <tspan x={lx} dy="-0.6em">
+                      {LABEL_WRAP[seg.name][0]}
+                    </tspan>
+                    <tspan x={lx} dy="1.2em">
+                      {LABEL_WRAP[seg.name][1]}
+                    </tspan>
+                  </>
+                ) : (
+                  seg.name
+                )}
               </motion.text>
             </g>
           );

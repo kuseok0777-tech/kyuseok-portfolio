@@ -58,7 +58,7 @@ function DonutChart({
     <div className="flex flex-col items-center w-full">
       <motion.svg
         viewBox={`${viewBoxMinX} 0 ${width} ${height}`}
-        className="w-full max-w-[min(100%,400px)] aspect-[640/340] sm:max-w-[480px] lg:max-w-[560px]"
+        className="w-full max-w-[min(100%,480px)] aspect-[640/340] sm:max-w-[560px] lg:max-w-[660px]"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={inView ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.6, delay, type: "spring", stiffness: 90, damping: 18 }}

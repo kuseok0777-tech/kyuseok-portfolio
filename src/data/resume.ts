@@ -3,9 +3,8 @@ export const profile = {
   title: "Project Engineer",
   taglines: [
     "Project Engineer @ GMODIS Inc.",
-    "Piping & Constructability Specialist",
-    "P.Eng Candidate in Progress",
-    "Queen's University Grad, 2025",
+    "B.A.Sc. Mechanical Engineering, Queen's University",
+    "International project experience",
   ],
   summary:
     "Project engineer with hands-on experience at a multi-billion-dollar battery manufacturing project in Canada. Passionate about bridging design intent with real-world site execution through code-aware decisions, 3D model coordination, and cross-cultural teamwork.",

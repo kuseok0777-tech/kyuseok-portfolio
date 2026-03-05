@@ -85,12 +85,6 @@ export default function Navbar() {
                 <span className="relative">{l.label}</span>
               </button>
             ))}
-            <a
-              href="mailto:kuseok0777@gmail.com"
-              className="ml-3 px-4 py-1.5 bg-gradient-to-r from-blue-500 to-violet-600 text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/25"
-            >
-              Hire Me
-            </a>
           </nav>
 
           {/* Mobile burger */}
@@ -128,12 +122,6 @@ export default function Navbar() {
                   {l.label}
                 </button>
               ))}
-              <a
-                href="mailto:kuseok0777@gmail.com"
-                className="mt-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-violet-600 text-white text-sm font-semibold rounded-xl text-center"
-              >
-                Hire Me
-              </a>
             </div>
           </motion.div>
         )}

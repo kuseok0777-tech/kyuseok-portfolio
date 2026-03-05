@@ -147,23 +147,14 @@ export default function Hero() {
             >
               View Projects
             </button>
-          </motion.div>
-
-          {/* Social links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="flex items-center gap-4"
-          >
             <a
               href={profile.linkedin}
-              className="flex items-center gap-2 text-slate-500 hover:text-blue-400 transition-colors text-sm"
               target="_blank"
               rel="noreferrer"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-violet-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-200"
             >
-              <Linkedin size={18} />
-              <span>LinkedIn</span>
+              <Linkedin size={16} />
+              LinkedIn
             </a>
           </motion.div>
         </div>

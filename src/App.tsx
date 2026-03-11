@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Skills from "./components/Skills";
+import CaseStudies from "./components/CaseStudies";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import PEngPath from "./components/PEngPath";
@@ -14,7 +14,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <About />
-      <Skills />
+      <CaseStudies />
       <Experience />
       <Projects />
       <PEngPath />

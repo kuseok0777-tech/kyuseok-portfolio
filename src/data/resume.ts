@@ -91,6 +91,72 @@ export const projects = [
   },
 ];
 
+export const caseStudies = [
+  {
+    id: 1,
+    perspective: "Process Engineering Perspective",
+    title: "Utility System Readiness – CDA Line",
+    context:
+      "This case focuses on the Compressed Dry Air (CDA) utility system supporting the mixer area within a large-scale EV battery manufacturing facility. Prior to commissioning, the piping network required verification to ensure readiness for pneumatic testing and system startup.",
+    problem:
+      "Several piping connections were identified as UTJ (Untested Joints) during commissioning preparation. Because of this classification, the testing boundaries within the CDA system were unclear, creating uncertainty regarding which sections of the line had already been verified and which still required testing.",
+    analysis: [
+      "Traced the CDA system boundaries using P&ID documentation",
+      "Identified segments connected to atmospheric discharge lines",
+      "Verified valve lineup and isolation points in the field",
+    ],
+    actions: [
+      "Defined clear testing boundaries within the CDA system",
+      "Verified valve positions and line configurations during field inspections",
+      "Coordinated with contractors to prepare the system for pneumatic testing",
+    ],
+    result:
+      "The CDA utility system was successfully clarified and prepared for testing. This improved commissioning readiness and reduced uncertainty regarding system verification prior to startup.",
+  },
+  {
+    id: 2,
+    perspective: "Piping / Mechanical Design Perspective",
+    title: "Clamp Leakage Risk Investigation",
+    context:
+      "During commissioning preparation in the mixer area, several slurry and solvent piping connections used clamp-type assemblies to connect tubing and piping components.",
+    problem:
+      "Inspection revealed a potential leakage risk at multiple clamp connections. Misaligned clamp installation resulted in uneven gasket compression, which could cause leakage when the system was pressurized.",
+    analysis: [
+      "Reviewed clamp orientation and positioning",
+      "Inspected gasket seating conditions",
+      "Verified piping alignment between connected components",
+    ],
+    actions: [
+      "Issued a Field Instruction describing the required corrective actions",
+      "Recommended proper alignment sequence before clamp tightening",
+      "Coordinated with contractors to perform corrective installation work",
+    ],
+    result:
+      "The installation conditions were corrected and the risk of leakage was significantly reduced. The piping system was then able to proceed toward commissioning readiness.",
+  },
+  {
+    id: 3,
+    perspective: "Industrial / Manufacturing Engineering Perspective",
+    title: "Commissioning Workflow Coordination",
+    context:
+      "During the commissioning preparation of the mixer area, multiple contractors were performing installation corrections, punch list closures, and system verifications simultaneously.",
+    problem:
+      "Several punch list items and contractor activities overlapped, creating conflicts in work sequencing and slowing progress toward commissioning readiness.",
+    analysis: [
+      "Outstanding work items were systematically tracked and categorized",
+      "Work priorities were evaluated based on commissioning requirements",
+      "Dependencies between installation corrections and testing activities were identified",
+    ],
+    actions: [
+      "Adjusted work sequencing to align with commissioning priorities",
+      "Verified testing readiness for completed piping sections",
+      "Facilitated communication between contractors and project stakeholders",
+    ],
+    result:
+      "The coordination improvements helped streamline the remaining work and enhanced overall commissioning readiness for the mixer system.",
+  },
+];
+
 export const pengSteps = [
   {
     step: 1,

@@ -7,10 +7,11 @@ export const profile = {
     "International project experience",
   ],
   summary:
-    "Project engineer with hands-on experience at the first multi-billion-dollar battery manufacturing project in Canada. Brings a multicultural perspective (Korean background, Canadian university, international teams) and understands diverse work customs.",
+    "Mechanical Engineering graduate with hands-on experience as a Project Engineer on a multi-billion-dollar battery manufacturing project in Canada. Experienced in piping constructability review and utility interconnection validation using P&IDs, isometric drawings, and 3D model coordination. Coordinated with the client, contractors and management teams to support installation and resolve technical issues.",
   email: "kuseok0777@gmail.com",
   location: "Windsor, Ontario, Canada",
-  linkedin: "https://www.linkedin.com/in/kyuchoiatgmodis",  
+  linkedin: "https://www.linkedin.com/in/kyuchoiatgmodis",
+  resume: "/resume.pdf",
   github: "#",
   /** 프로필 사진: public 폴더에 넣은 파일명 (예: avatar.jpg) */
   avatar: "/avatar.png",

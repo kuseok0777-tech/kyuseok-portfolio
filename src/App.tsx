@@ -4,7 +4,6 @@ import About from "./components/About";
 import CaseStudies from "./components/CaseStudies";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
-import PEngPath from "./components/PEngPath";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -17,7 +16,6 @@ export default function App() {
       <CaseStudies />
       <Experience />
       <Projects />
-      <PEngPath />
       <Contact />
       <Footer />
     </div>

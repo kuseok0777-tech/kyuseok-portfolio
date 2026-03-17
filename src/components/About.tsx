@@ -74,24 +74,10 @@ export default function About() {
               expensive rework, and I document engineering decisions clearly.
             </p>
             <p className="text-slate-400 leading-relaxed">
-              Outside of work, I am actively building the skills and experience record
-              needed for P.Eng licensure in Ontario — because I believe engineering
-              accountability is not just a title, it is a standard of practice.
+              I enjoy taking on challenges and finding practical solutions. Living
+              abroad for more than 10 years taught me how to adapt, stay persistent,
+              and figure things out along the way.
             </p>
-
-            {/* Key facts */}
-            <div className="pt-4 flex flex-wrap gap-3">
-              {["Windsor, ON", "Open to Work", "P.Eng Candidate", "EIT Status"].map(
-                (tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1.5 bg-slate-800 border border-slate-700 text-slate-300 text-sm rounded-lg font-medium"
-                  >
-                    {tag}
-                  </span>
-                )
-              )}
-            </div>
           </motion.div>
 
           {/* Right — cards */}

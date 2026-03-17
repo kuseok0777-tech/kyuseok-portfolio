@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, Linkedin, MapPin } from "lucide-react";
+import { ArrowDown, Mail, Linkedin, MapPin, FileText } from "lucide-react";
 import { profile } from "../data/resume";
 import { useTyping } from "../hooks/useTyping";
 
@@ -142,43 +142,31 @@ export default function Hero() {
               Get In Touch
             </button>
             <button
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-violet-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-200"
+            >
+              View Case Studies
+            </button>
+            <a
+              href={profile.resume}
+              target="_blank"
+              rel="noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 hover:border-white/30 transition-all duration-200"
             >
-              View Projects
-            </button>
+              <FileText size={16} />
+              Resume
+            </a>
             <a
               href={profile.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-violet-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-200"
+              className="flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 hover:border-white/30 transition-all duration-200"
             >
               <Linkedin size={16} />
               LinkedIn
             </a>
           </motion.div>
         </div>
-
-        {/* Stats row — 첫 줄 아래 */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1 }}
-          className="mt-16 flex flex-wrap gap-6 sm:gap-10"
-        >
-          {[
-            { value: "1+", label: "Year Industry Experience" },
-            { value: "B.A.Sc.", label: "Mechanical Eng, Queen's" },
-            { value: "P.Eng", label: "Target Licensure" },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col gap-0.5">
-              <span className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
-                {stat.value}
-              </span>
-              <span className="text-slate-500 text-xs sm:text-sm">{stat.label}</span>
-            </div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Scroll down */}

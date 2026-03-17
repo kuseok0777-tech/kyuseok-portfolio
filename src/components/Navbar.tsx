@@ -7,7 +7,6 @@ const links = [
   { href: "#case-studies", label: "Case Studies" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
-  { href: "#peng", label: "P.Eng Path" },
   { href: "#contact", label: "Contact" },
 ];
 
